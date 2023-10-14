@@ -1,3 +1,7 @@
+let text_area_heterogram = document.getElementById('heterogram-area');
+let button_heterogram = document.getElementById('heterogram-button');
+let heterogram_result = document.getElementById('heterogram-result');
+
 // Heterograma - un string donde las letras no se repiten ni una sola vez
 
 function isHeterogram(str) {
@@ -17,12 +21,12 @@ function isHeterogram(str) {
 
     for (let letter in count) {
         if (count[letter] > 1) {
-            repeats.push(`${letter} (${count[letter]} times)`);
+            repeats.push(`${letter} (${count[letter]} veces)`);
         }
     }
 
     if (repeats.length > 0) {
-        return `The string "${str}" is not a heterogram. The following letters repeat: ${repeats.join(", ")}.`;
+        return `La string (cadena de texto) "${str}" no es un Heterograma. Las siguientes letras se repiten: ${repeats.join(", ")}.`;
     } else {
         return `The string "${str}" is a heterogram because none of the letters repeat.`;
     }
@@ -86,27 +90,8 @@ function isPangram(str) {
 console.log(isPangram('Waltz, bad nymph, for quick jigs vexñ'))
 console.log(isPangram('hello how are you'))
 
-/*
-  function isHeterogram(str) {
-    // Create an array to store the count of each letter
-    let count = new Array(26).fill(0);
-    
-    // Traverse the string and update the count of each letter
-    for (let i = 0; i < str.length; i++) {
-      // Ignore spaces and non-letter characters
-      if (str[i] !== ' ' && str[i].match(/[a-zA-Z]/)) {
-        // Convert the letter to lowercase and update the count
-        let index = str[i].toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0);
-        count[index]++;
-        
-        // If a letter occurs more than once, return false
-        if (count[index] > 1) {
-          return false;
-        }
-      }
+button_heterogram.addEventListener('click', () => {
+    if(text_area_heterogram.value !== ''){
+        heterogram_result.innerText = isHeterogram(text_area_heterogram.value);
     }
-    
-    // If all letters occur only once, return true
-    return true;
-  }
-  */
+})
