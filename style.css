@@ -34,6 +34,10 @@ ul {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 .pointer {
     cursor: pointer;
 }
@@ -97,7 +101,7 @@ ul {
 }
 
 .text-p {
-    text-align: justify;
+    text-align: center;
     font-size: 2rem;
     padding: 2rem;
     line-height: 3rem;
@@ -113,12 +117,22 @@ ul {
 
 /* Text Area */
 
+.text-area {
+    border-radius: 1.2rem;
+    border: 0.25rem solid black;
+}
 
 /* Buttons */
 
 .btn {
     padding: 1.2rem;
     font-size: 2rem;
+    font-weight: bold;
+    transition: all 200ms ease-in-out 50ms;
+}
+
+.btn:hover {
+    transform: scale(1.15);
 }
 
 /* Media Queries*/
