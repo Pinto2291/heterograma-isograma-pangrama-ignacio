@@ -1,6 +1,17 @@
+/* Text Area */
 let text_area_heterogram = document.getElementById('heterogram-area');
+let text_area_isogram = document.getElementById('isogram-area');
+let text_area_pangram = document.getElementById('pangram-area');
+
+/* Button */
 let button_heterogram = document.getElementById('heterogram-button');
+let button_isogram = document.getElementById('isogram-button');
+let button_pangram = document.getElementById('pangram-button');
+
+/* Result */
 let heterogram_result = document.getElementById('heterogram-result');
+let isogram_result = document.getElementById('isogram-result');
+let pangram_result = document.getElementById('pangram-result');
 
 // Heterograma - un string donde las letras no se repiten ni una sola vez
 
@@ -28,7 +39,7 @@ function isHeterogram(str) {
     if (repeats.length > 0) {
         return `La string (cadena de texto) "${str}" no es un Heterograma. Las siguientes letras se repiten: ${repeats.join(", ")}.`;
     } else {
-        return `The string "${str}" is a heterogram because none of the letters repeat.`;
+        return `El string "${str}" es un heterograma porque ninguna de las letras se repiten.`;
     }
 }
 
@@ -57,15 +68,12 @@ for (let letter in count) {
     }
 
     if (repeats.length > 0) {
-        return `The string "${str}" is an isogram. The following letters repeat: ${repeats.join(", ")}.`;
+        return `El string "${str}" es un isograma. Las siguientes letras se repiten: ${repeats.join(", ")}.`;
     } else {
-        return `The string "${str}" is not an isogram because any letter repeat itself.`;
+        return `El string "${str}" no es un isograma porque ninguna letra se repite.`;
     }
 }
 
-
-console.log(isIsogram('hello everyone'));
-console.log(isIsogram('hola'));
 
 // Pangrama - un string en donde aparecen todas las letras del alfabeto
 
@@ -80,18 +88,27 @@ function isPangram(str) {
     }
     
     if (missingLetters.length > 0) {
-      return `The string "${str}" is not a pangram. The following letters are missing: ${missingLetters}.`;
+      return `El string "${str}" no es un pangrama. Las siguientes letras estan faltando: ${missingLetters}.`;
     } else {
-      return `The string "${str}" is a pangram.`;
+      return `El string "${str}" es un pangrama.`;
     }
-  }
-  
+}
 
-console.log(isPangram('Waltz, bad nymph, for quick jigs vexñ'))
-console.log(isPangram('hello how are you'))
 
 button_heterogram.addEventListener('click', () => {
     if(text_area_heterogram.value !== ''){
         heterogram_result.innerText = isHeterogram(text_area_heterogram.value);
+    }
+})
+
+button_isogram.addEventListener('click', () => {
+    if(text_area_isogram.value !== ''){
+        isogram_result.innerText = isIsogram(text_area_isogram.value);
+    }
+})
+
+button_pangram.addEventListener('click', () => {
+    if(text_area_pangram.value !== ''){
+        pangram_result.innerText = isPangram(text_area_pangram.value);
     }
 })
